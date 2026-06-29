@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optima McDowell Mountain 7220 — Materials &amp; Product Registry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<style>
+  :root{
+    --bg:#0C0C0E;
+    --surface:#17171B;
+    --surface2:#1D1D22;
+    --ink:#F3F2ED;
+    --muted:#9A988F;
+    --border:#2B2B30;
+    --accent:#E2615A;
+    --warn:#E3B94A;
+    --pill-bg:#232328;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% 0%, rgba(226,97,90,0.10), transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  svg{display:block;}
+  .topbar{background:var(--accent);padding:18px 24px;}
+  .topbar-inner{max-width:1220px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:#fff;letter-spacing:.01em;}
+  .building-chip{display:flex;align-items:center;gap:7px;color:#fff;font-size:13px;font-weight:500;background:rgba(255,255,255,.16);padding:7px 13px;border-radius:999px;}
+  .building-chip svg{color:#fff;}
+
+  .wrap{max-width:1220px;margin:0 auto;padding:28px 24px 80px;}
+  .statline{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--muted);
+    margin:0 0 14px;
+  }
+
+  .util-row{display:flex;gap:16px;align-items:center;margin-bottom:14px;flex-wrap:wrap;}
+  .util-btn{
+    display:inline-flex;align-items:center;gap:6px;background:transparent;border:none;
+    color:var(--muted);font-size:12.5px;font-family:'Inter',sans-serif;cursor:pointer;padding:4px 0;
+  }
+  .util-btn:hover{color:var(--ink);}
+  .util-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .util-status{font-size:12px;color:var(--muted);}
+
+  .warranty-banner{
+    display:none;align-items:center;gap:10px;
+    background:rgba(226,97,90,0.12);border:1px solid rgba(226,97,90,0.35);
+    color:var(--ink);padding:10px 16px;border-radius:9px;margin-bottom:12px;font-size:13px;
+  }
+  .warranty-banner .txt{flex:1;}
+  .stale-banner{
+    display:none;align-items:center;gap:10px;
+    background:var(--surface2);border:1px solid var(--border);
+    color:var(--ink);padding:10px 16px;border-radius:9px;margin-bottom:16px;font-size:13px;
+  }
+  .stale-banner .txt{flex:1;}
+  .banner-btn{
+    background:transparent;color:var(--ink);border:1px solid var(--border);padding:6px 13px;
+    border-radius:7px;font-family:'Inter',sans-serif;font-size:12.5px;cursor:pointer;flex:0 0 auto;
+  }
+  .banner-btn:hover{border-color:var(--accent);}
+
+
+  .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px;}
+  .search-wrap{position:relative;flex:1 1 240px;}
+  .search-wrap .ic{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);}
+  .search-wrap input{
+    width:100%;padding:11px 14px 11px 38px;border:1px solid var(--border);border-radius:9px;
+    background:var(--surface);color:var(--ink);font-family:'Inter',sans-serif;font-size:14px;
+  }
+  .search-wrap input::placeholder{color:var(--muted);}
+  .search-wrap input:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+  .select-wrap{position:relative;}
+  .select-wrap select{
+    appearance:none;-webkit-appearance:none;-moz-appearance:none;
+    padding:11px 34px 11px 14px;border:1px solid var(--border);border-radius:9px;
+    background:var(--surface);color:var(--ink);font-family:'Inter',sans-serif;font-size:13.5px;
+    min-width:170px;cursor:pointer;
+  }
+  .select-wrap select:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .select-wrap .chev{position:absolute;right:11px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;}
+
+  .iconbtn{
+    width:42px;height:42px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--border);background:var(--surface);border-radius:9px;color:var(--ink);cursor:pointer;
+  }
+  .iconbtn:hover{border-color:var(--muted);}
+  .iconbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+  .addbtn{
+    background:#fff;color:#15151A;border:none;padding:11px 18px;border-radius:9px;
+    font-weight:600;font-size:14px;display:flex;align-items:center;gap:7px;cursor:pointer;white-space:nowrap;
+  }
+  .addbtn:hover{background:#E7E4DC;}
+  .addbtn:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+
+  .cascade-hint{font-size:12px;color:var(--muted);margin:0 0 22px;}
+  .cascade-hint b{color:var(--ink);font-weight:500;}
+
+  .panel{display:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:24px;}
+  .panel.open{display:block;}
+  .panel h2{font-family:'Fraunces',serif;font-size:17px;font-weight:600;margin:0 0 4px;}
+  .panel .hint{font-size:12.5px;color:var(--muted);margin:0 0 16px;}
+  .formgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+  .field{display:flex;flex-direction:column;gap:5px;}
+  .field.full{grid-column:1 / -1;}
+  .field label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  .field input, .field select{
+    padding:9px 10px;border:1px solid var(--border);border-radius:6px;
+    font-family:'Inter',sans-serif;font-size:14px;background:var(--bg);color:var(--ink);
+  }
+  .field input:focus-visible, .field select:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
+  .panel-actions{display:flex;gap:10px;margin-top:16px;}
+  .dup-warning{
+    display:none;background:rgba(227,185,74,0.12);border:1px solid rgba(227,185,74,0.4);
+    color:var(--warn);font-size:12.5px;padding:10px 13px;border-radius:8px;margin-top:14px;line-height:1.5;
+  }
+  .btn-primary{background:var(--accent);color:#fff;border:none;padding:10px 18px;border-radius:7px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);padding:10px 18px;border-radius:7px;font-family:'Inter',sans-serif;font-size:14px;cursor:pointer;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;}
+  .card{
+    position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+    padding:16px;transition:transform .15s ease, border-color .15s ease;
+  }
+  .card:hover{transform:translateY(-2px);border-color:var(--muted);}
+  .card-top{display:flex;gap:13px;align-items:flex-start;}
+  .avatar{
+    width:54px;height:54px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:600;font-size:14px;
+  }
+  .card-info{flex:1;min-width:0;}
+  .card-info h3{
+    margin:0 0 7px;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:var(--ink);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .meta-row{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);margin:4px 0;min-width:0;}
+  .meta-row svg{flex:0 0 auto;}
+  .meta-row .spec-text{font-family:'IBM Plex Mono',monospace;color:var(--ink);font-size:11.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .meta-row .cat-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .pillrow{margin-top:10px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+  .pill{display:inline-flex;align-items:center;gap:5px;background:var(--pill-bg);color:var(--ink);font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;}
+  .unit-pill{background:transparent;border:1px solid var(--accent);color:var(--accent);}
+  .fin-note{font-size:11.5px;color:var(--muted);margin:10px 0 0;line-height:1.4;}
+  .badge-team{
+    position:absolute;top:12px;right:12px;font-family:'IBM Plex Mono',monospace;font-size:9px;
+    text-transform:uppercase;letter-spacing:.05em;background:var(--bg);border:1px solid var(--border);
+    color:var(--muted);padding:3px 8px;border-radius:999px;
+  }
+  .manual-link{
+    display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:11.5px;font-weight:500;
+    color:var(--ink);text-decoration:none;border:1px solid var(--border);padding:6px 11px;border-radius:7px;
+  }
+  .manual-link:hover{border-color:var(--accent);color:var(--accent);}
+  .manual-link.fallback{color:var(--muted);border-style:dashed;}
+  .manual-link.fallback:hover{border-color:var(--muted);color:var(--ink);}
+
+  .details-toggle{
+    margin-top:12px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;
+    background:transparent;border:1px solid var(--border);color:var(--muted);padding:7px 10px;
+    border-radius:7px;font-family:'Inter',sans-serif;font-size:12px;cursor:pointer;
+  }
+  .details-toggle:hover{color:var(--ink);border-color:var(--muted);}
+  .details-toggle .tchev{display:flex;transition:transform .15s ease;}
+  .details-toggle.open .tchev{transform:rotate(180deg);}
+  .expanded{display:none;margin-top:12px;border-top:1px solid var(--border);padding-top:12px;}
+
+  .card-photo{width:100%;border-radius:9px;margin-bottom:10px;display:block;}
+  .photo-placeholder{
+    display:flex;align-items:center;justify-content:center;gap:8px;height:90px;
+    border:1px dashed var(--border);border-radius:9px;color:var(--muted);font-size:12px;margin-bottom:10px;
+  }
+  .warranty-row{font-size:12.5px;}
+  .warranty-row.warranty-bad{color:var(--accent);}
+  .warranty-row.warranty-warn{color:var(--warn);}
+  .confirmed-row{font-size:12.5px;}
+  .confirmed-row.confirmed-stale{color:var(--warn);}
+  .history-block{margin-top:10px;}
+  .history-title{display:flex;align-items:center;gap:6px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px;font-family:'IBM Plex Mono',monospace;}
+  .history-list{margin:0;padding-left:16px;font-size:11.5px;color:var(--muted);line-height:1.6;}
+  .edit-btn{
+    display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:11.5px;font-weight:500;
+    color:var(--muted);background:transparent;border:1px solid var(--border);padding:6px 11px;border-radius:7px;cursor:pointer;
+  }
+  .edit-btn:hover{color:var(--ink);border-color:var(--muted);}
+
+  .empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted);font-size:14px;}
+  .empty button{margin-top:10px;background:none;border:none;color:var(--accent);text-decoration:underline;cursor:pointer;font-size:14px;font-family:'Inter',sans-serif;}
+  footer{margin-top:40px;font-size:12px;color:var(--muted);}
+  @media (max-width:640px){ .formgrid{grid-template-columns:1fr;} }
+  @media (prefers-reduced-motion:reduce){ .card{transition:none;} .details-toggle .tchev{transition:none;} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">optima registry</span>
+    <span class="building-chip" id="pinIcon">Optima McDowell Mountain — 7220</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <p class="statline" id="statline">Loading registry…</p>
+
+  <div class="util-row">
+    <button class="util-btn" id="exportBtn"><span id="exportIcon"></span>Export CSV</button>
+    <button class="util-btn" id="importBtn"><span id="importIcon"></span>Import CSV</button>
+    <input type="file" id="csvFileInput" accept=".csv" style="display:none">
+    <span class="util-status" id="importStatus"></span>
+  </div>
+
+  <div class="warranty-banner" id="warrantyBanner">
+    <span id="warrantyIcon"></span>
+    <span class="txt" id="warrantyText"></span>
+    <button class="banner-btn" id="warrantyBannerBtn">View these</button>
+  </div>
+
+  <div class="stale-banner" id="staleBanner">
+    <span id="staleIcon"></span>
+    <span class="txt" id="staleText"></span>
+    <button class="banner-btn" id="staleBannerBtn">View these</button>
+  </div>
+
+
+  <div class="controls">
+    <div class="search-wrap">
+      <span class="ic" id="searchIcon"></span>
+      <input id="search" type="text" placeholder="Search by item, location, manufacturer, or model number…" autocomplete="off">
+    </div>
+
+    <div class="select-wrap"><select id="selView"></select><span class="chev" id="chevV"></span></div>
+    <div class="select-wrap"><select id="selBuilding"></select><span class="chev" id="chevB"></span></div>
+    <div class="select-wrap"><select id="selFloor"></select><span class="chev" id="chevF"></span></div>
+    <div class="select-wrap"><select id="selCategory"></select><span class="chev" id="chevC"></span></div>
+
+    <button class="iconbtn" id="resetBtn" title="Reset filters" aria-label="Reset filters"></button>
+    <button class="addbtn" id="openAdd"><span id="plusIcon"></span>Add New Item</button>
+  </div>
+
+  <p class="cascade-hint">Pick a <b>view</b> for the kind of work you're doing, then <b>building</b>, <b>floor</b>, and <b>category</b> narrow down from there — each one only shows options that actually exist in what's left.</p>
+
+  <div class="panel" id="panel">
+    <h2 id="panelTitle">Add an item to the registry</h2>
+    <p class="hint" id="panelHint">Saved to shared storage — visible to anyone using this dashboard.</p>
+    <div class="formgrid">
+      <div class="field">
+        <label for="f-building">Building</label>
+        <select id="f-building"></select>
+      </div>
+      <div class="field">
+        <label for="f-floor">Floor</label>
+        <select id="f-floor"></select>
+      </div>
+      <div class="field">
+        <label for="f-cat">Category</label>
+        <select id="f-cat"></select>
+      </div>
+      <div class="field full">
+        <label for="f-loc">Location</label>
+        <input id="f-loc" type="text" placeholder="e.g. Unit 1008 bathroom">
+      </div>
+      <div class="field">
+        <label for="f-item">Item</label>
+        <input id="f-item" type="text" placeholder="e.g. Shower valve trim">
+      </div>
+      <div class="field">
+        <label for="f-spec">Manufacturer / model</label>
+        <input id="f-spec" type="text" placeholder="e.g. Kohler K-TLS99764-4-CP">
+      </div>
+      <div class="field">
+        <label for="f-fin">Finish / notes</label>
+        <input id="f-fin" type="text" placeholder="e.g. Polished chrome">
+      </div>
+      <div class="field full">
+        <label>Photo (optional)</label>
+        <input id="f-photo-file" type="file" accept="image/*" style="display:none;">
+        <input id="f-photo" type="hidden">
+        <label for="f-photo-file" id="f-photo-label" style="display:flex;align-items:center;gap:9px;padding:10px 14px;border:1.5px dashed var(--border);border-radius:8px;background:var(--surface2);color:var(--muted);font-size:13px;cursor:pointer;transition:border-color .15s;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <span id="f-photo-label-text">Click to upload a photo</span>
+        </label>
+        <img id="f-photo-preview" style="display:none;width:100%;border-radius:8px;margin-top:8px;max-height:160px;object-fit:cover;" alt="">
+      </div>
+      <div class="field">
+        <label for="f-warranty">Warranty expires (optional)</label>
+        <input id="f-warranty" type="date">
+      </div>
+      <div class="field">
+        <label for="f-name">Your name</label>
+        <input id="f-name" type="text" placeholder="e.g. Alex R.">
+      </div>
+      <div class="field">
+        <label for="f-unit">Unit-specific override?</label>
+        <select id="f-unit">
+          <option value="no">No — general / floor-level default</option>
+          <option value="yes">Yes — specific to one unit</option>
+        </select>
+      </div>
+    </div>
+    <div class="dup-warning" id="dupWarning">An item named "<span id="dupItemName"></span>" already exists at "<span id="dupLocName"></span>". Click <b>Save</b> again to add it anyway.</div>
+    <div class="panel-actions">
+      <button class="btn-primary" id="saveAdd">Save to registry</button>
+      <button class="btn-ghost" id="cancelAdd">Cancel</button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <footer>26 of 30 appliance line items link to a manual or parts diagram. Warranty dates are seeded only for 4 items where a real term was sourced. Every item now carries a "last confirmed" date — since none of this data has been touched since the original Sept 2024 document, everything currently shows as needing reverification; that count will shrink as the team uses the Edit button.</footer>
+</div>
+
+<script>
+const ICON = {
+  search: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+  tag: `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 11 3.83A2 2 0 0 0 9.59 3.24L3.24 9.59A2 2 0 0 0 3.83 11l9.58 9.59a2 2 0 0 0 2.83 0l4.35-4.35a2 2 0 0 0 0-2.83Z"/><circle cx="8.5" cy="8.5" r="1" fill="currentColor" stroke="none"/></svg>`,
+  layers: `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`,
+  pin: `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>`,
+  plus: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>`,
+  gear: `<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>`,
+  chevron: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`,
+  doc: `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`,
+  search2: `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+  photo: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>`,
+  edit: `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg>`,
+  history: `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v5h5"/><path d="M3.05 13a9 9 0 1 0 2.13-5.36L3 8"/><path d="M12 7v5l4 2"/></svg>`,
+  shield: `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>`,
+  alert: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+  download: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`,
+  upload: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>`,
+  flag: `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>`
+};
+document.getElementById('searchIcon').innerHTML = ICON.search;
+document.getElementById('resetBtn').innerHTML = ICON.gear;
+document.getElementById('plusIcon').innerHTML = ICON.plus;
+document.getElementById('pinIcon').innerHTML = ICON.pin + ' Optima McDowell Mountain — 7220';
+document.getElementById('warrantyIcon').innerHTML = ICON.alert;
+document.getElementById('staleIcon').innerHTML = ICON.history;
+document.getElementById('exportIcon').innerHTML = ICON.download;
+document.getElementById('importIcon').innerHTML = ICON.upload;
+['chevV','chevB','chevF','chevC'].forEach(id => document.getElementById(id).innerHTML = ICON.chevron);
+
+const SUPA_URL = 'https://cqaavamwozwlaqpvyqaf.supabase.co';
+const SUPA_KEY = 'sb_publishable_R8sIyVjgu0RoUMpmmGXmvQ_9SoCleow';
+const db = supabase.createClient(SUPA_URL, SUPA_KEY);
+
+async function dbUpsertItem(rec){
+  const {error} = await db.from('registry_items').upsert({
+    id:rec.id, c:rec.c, loc:rec.loc, item:rec.item, spec:rec.spec||'',
+    fin:rec.fin||'', photo:rec.photo||'', warranty:rec.warranty||'',
+    building:rec.building, floor:rec.floor, source:rec.source||'team',
+    unit_override:rec.unitOverride||false, last_confirmed:rec.lastConfirmed||''
+  });
+  if(error) console.error('save item:', error);
+}
+async function dbInsertHistory(item_id, entry){
+  const {error} = await db.from('item_history').insert({
+    item_id, date:entry.date, by_name:entry.by||'', summary:entry.summary
+  });
+  if(error) console.error('save history:', error);
+}
+async function dbUploadPhoto(file, itemId){
+  const ext = file.name.split('.').pop().toLowerCase();
+  const path = itemId+'-'+Date.now()+'.'+ext;
+  const {error} = await db.storage.from('photos').upload(path, file, {upsert:true});
+  if(error) throw error;
+  return db.storage.from('photos').getPublicUrl(path).data.publicUrl;
+}
+
+const BUILDINGS = { omm7220: 'Optima McDowell Mountain — 7220' };
+const FLOOR_ORDER = ['Level 1','Levels 2, 4, 6, 8','Levels 3, 5, 7','Levels 2–10','Floors 2–6','Floors 7–8','Roof','Garage','Common / Various'];
+
+const CATS = {
+  units:      {label:'Residential Units',      color:'#D79A5E', code:'RU'},
+  corridors:  {label:'Residential Corridors',   color:'#9DB39D', code:'RC'},
+  amenity:    {label:'Level 1 Amenity',         color:'#5FBE8D', code:'L1'},
+  roof:       {label:'Roof &amp; Garage Amenity',color:'#5FA8D9', code:'RG'},
+  lighting:   {label:'Lighting',                color:'#E3B94A', code:'LT'},
+  plumbing:   {label:'Plumbing Fixtures',       color:'#52C2D6', code:'PL'},
+  bath:       {label:'Bath Accessories',        color:'#C49BE0', code:'BA'},
+  appliances: {label:'Appliances',              color:'#E96F66', code:'AP'}
+};
+
+const VIEWS = {
+  all:         {label:'All views',           cats:null},
+  maintenance: {label:'Maintenance & repairs', cats:['appliances','plumbing','lighting']},
+  leasing:     {label:'Leasing & design',      cats:['units','corridors','amenity','roof','bath']}
+};
+
+const FIELD_LABELS = {c:'Category', loc:'Location', item:'Item', spec:'Manufacturer/model', fin:'Finish/notes', photo:'Photo', warranty:'Warranty date', floor:'Floor'};
+
+const NUM_WORDS = {one:'1',two:'2',three:'3',four:'4',five:'5',six:'6',seven:'7',eight:'8',nine:'9',ten:'10',first:'1',second:'2',third:'3'};
+function normalizeNumbers(str){
+  return str.split(/\s+/).map(w => NUM_WORDS[w] || w).join(' ');
+}
+
+function deriveFloor(loc){
+  const l = loc.toLowerCase();
+  if(l.includes('levels 2,4,6,8')) return 'Levels 2, 4, 6, 8';
+  if(l.includes('levels 3,5,7')) return 'Levels 3, 5, 7';
+  if(l.includes('levels 2-10')) return 'Levels 2–10';
+  if(l.includes('floors 2-6')) return 'Floors 2–6';
+  if(l.includes('floors 7-8')) return 'Floors 7–8';
+  if(l.includes('all floors')) return 'Levels 2–10';
+  if(l.includes('level 8')) return 'Levels 2, 4, 6, 8';
+  if(l.includes('level 7')) return 'Levels 3, 5, 7';
+  if(l.includes('roof') || l.includes('grade') || l.includes('pool')) return 'Roof';
+  if(l.includes('garage') || l.includes('pet spa')) return 'Garage';
+  if(l.includes('level 1')) return 'Level 1';
+  if(l.includes('elevator lobb') || l.includes('outdoor path') || l.includes('utility room') || l.includes('common laundry') || l.includes('staff / work') || l.includes('staff/work')) return 'Common / Various';
+  if(l.includes('unit') || l.includes('bedroom') || l.includes('bathroom') || l.includes('powder room') || l.includes('select unit')) return 'Levels 2–10';
+  return 'Level 1';
+}
+
+const MANUALS = [
+  {match:'RS22T5201SR',   url:'https://www.samsung.com/us/support/model/RS22T5201SR/AA/', verified:true},
+  {match:'NZ30K7880US',   url:'https://www.samsung.com/us/support/model/NZ30K7880US/', verified:false},
+  {match:'MS19M8000A',    url:'https://www.samsung.com/us/support/model/MS19M8000A/', verified:false},
+  {match:'DW80R2031US',   url:'https://www.samsung.com/us/support/model/DW80R2031US/', verified:false},
+  {match:'NV51T5511S',    url:'https://www.samsung.com/us/support/model/NV51T5511S/', verified:false},
+  {match:'RF27CG5400SRAA',url:'https://www.samsung.com/us/support/model/RF27CG5400SRAA/', verified:true},
+  {match:'DW80R5061USAA', url:'https://www.samsung.com/us/support/model/DW80R5061USAA/', verified:false},
+  {match:'NV51K6650SSAA', url:'https://www.samsung.com/us/support/model/NV51K6650SSAA/', verified:false},
+  {match:'SDW60R2014USAA',url:'https://www.samsung.com/us/support/model/SDW60R2014USAA/', verified:false},
+  {match:'WF45B6300AP',   url:'https://www.samsung.com/us/support/model/WF45B6300AP/', verified:false},
+  {match:'DVE45R6300P',   url:'https://www.samsung.com/us/support/model/DVE45R6300P/', verified:false},
+  {match:'WM5500HVA',     url:'https://www.lg.com/us/support/product/lg-WM5500HVA', verified:true},
+  {match:'DLHC5502V',     url:'https://www.lg.com/us/support/product/lg-DLHC5502V', verified:false},
+  {match:'WVI75UC6DS',    url:'https://www.whirlpool.com/kitchen/cooking/hoods/p.pdpv5.WVI75UC6DS.html', verified:true},
+  {match:'WVI51UC6LS',    url:'https://www.whirlpool.com/kitchen/cooking/hoods/p.pdpv5.WVI51UC6LS.html', verified:false},
+  {match:'BHMD8451UC',    url:'https://www.bosch-home.com/us/productslist/cooking-baking/microwaves/drawer-microwaves/HMD8451UC', verified:true},
+  {match:'NIT5060UC',     url:'https://www.bosch-home.com/us/productslist/cooking-baking/cooktops/induction-cooktops/NIT5060UC', verified:false},
+  {match:'KKMBP100ES',    url:'https://www.kitchenaid.com/owners-center-pdp.KMBP100ESS.html', verified:true},
+  {match:'HA24RB-4',      url:'https://www.manualslib.com/manual/1365859/Perlick-Ha24bb.html', verified:true},
+  {match:'HA24FB-4',      url:'https://www.manualslib.com/manual/1365859/Perlick-Ha24bb.html', verified:true},
+  {match:'H50IMW-AD',     url:'https://www.perlick.com/residential-installation/?locale=en', verified:false},
+  {match:'SP-HR2A-FG',    url:'https://www.hoshizakiamerica.com/support/manuals/', verified:false},
+  {match:'HDCM-300BAH',   url:'https://www.hoshizakiamerica.com/product/dcm-300bah/', verified:true},
+  {match:'WOG36',         url:'https://www.manualslib.com/manual/934453/Wolf-Og36-Lp.html', verified:true},
+  {match:'C1ELCT21',      url:'https://coyoteoutdoor.com/manuals-guides', verified:true},
+  {match:'C1EL120SM',     url:'https://coyoteoutdoor.com/manuals-guides', verified:true}
+];
+
+function getManualLink(it){
+  const hit = MANUALS.find(m => it.spec && it.spec.includes(m.match));
+  if(hit) return {url:hit.url, verified:hit.verified, label: hit.verified ? 'View manual' : 'View manual (unverified)'};
+  const q = encodeURIComponent((it.spec || it.item) + ' manual');
+  return {url:'https://www.google.com/search?q='+q, verified:false, label:'Search for manual', fallback:true};
+}
+
+const RAW = [
+['units','Unit walls — levels 2,4,6,8','Wall finish','Sherwin Williams SW7006 Extra White','Flat finish'],
+['units','Unit accent wall — levels 2,4,6,8','Accent wall tile','Cala Lenci 12x24','Polished finish'],
+['units','Unit cabinets — levels 2,4,6,8','Cabinet finish','Blanco',''],
+['units','Unit flooring — levels 2,4,6,8','Floor finish (LVT)','Karndean Loose-Lay Longboard, Lemon Spotted Gum','Glue down, 10"x59" planks'],
+['units','Terrace — level 8 only','Terrace flooring','Arizona Tile porcelain paver, Pietra Italia Black','12x24'],
+['units','Kitchen &amp; bath counters — levels 2,4,6,8','Countertop','Arizona Tile granite, Viscount White','2cm eased edge, polished'],
+['units','Unit walls — levels 3,5,7','Wall finish','Sherwin Williams SW7006 Extra White','Flat finish'],
+['units','Unit accent wall — levels 3,5,7','Accent wall tile','Arizona Tile Marvel: Calacatta Extra','12x24'],
+['units','Unit cabinets — levels 3,5,7','Cabinet finish','Tafisa L581(K), series Prelude, texture Karisma','Similar in nature and color'],
+['units','Unit flooring — levels 3,5,7','Floor finish (LVT)','Karndean Loose-Lay Longboard, custom color','Glue down, 10"x59" planks'],
+['units','Terrace — level 7 only','Terrace flooring','Arizona Tile porcelain paver, Pietra Italia Black','12x24'],
+['units','Kitchen &amp; bath counters — levels 3,5,7','Countertop','Arizona Tile quartz, Citrine','2cm eased edge, polished'],
+['corridors','Corridors — levels 2-10','Corridor wall finish','Sherwin Williams SW7006 Extra White','Flat finish'],
+['corridors','Unit entry doors — levels 2-10','Residential door','Masonite Melrose, 6-panel with reveals','Painted Unusual Gray'],
+['corridors','Door frames — levels 2-10','Residential frame finish','Sherwin Williams SW7059 Unusual Gray','Semi-gloss finish'],
+['corridors','Corridors — levels 2-10','Corridor floor finish','Shaw Contact Dye Lab, Iron 41580','Monolithic pattern'],
+['corridors','Corridors — levels 2-10','Unit address signage','Sign Gray Volor','RGB 73.71.69, font RGB 255.250.242'],
+['amenity','Locker rooms &amp; restrooms — level 1','Floor &amp; wall tile','AZ Tile Anthea Earth, porcelain','Matte finish, 24x48'],
+['amenity','Game room — level 1','Countertop','AZ Tile quartz, Pro Cloud','2cm, 18" backsplash at back wall'],
+['amenity','Game room — level 1','Flooring carpet','Shaw Contact Zest carpet tile #5T487, Brio-Color 87485','24x24 monolithic install'],
+['amenity','Locker rooms / spa — level 1','Amenity area casework','Fresh Look','Color: Gris'],
+['amenity','Game room — level 1','Game room high top','AZ Tile quartz, Pro Cloud','3cm, laminated edge, double waterfall edge'],
+['amenity','Sauna — level 1 spa','Sauna wall &amp; seating','Cedar plank wall, bench, headrest',''],
+['amenity','Spa lounge / fire command room — level 1','Floor carpet','Shaw Contact Dye Lab, Iron 41580','24x24 monolithic install'],
+['amenity','Outdoor lounge — level 1','Patio pavers','Belgard Dimensions, Sierra','12"x12"x2-3/8"'],
+['amenity','Locker room showers — level 1','Shower base tile','AZ Tile Anthea Earth, porcelain','Matte, large format, slip resistant'],
+['amenity','Yoga room — level 1','Floor material','Wood athletic sports flooring','Natural maple'],
+['amenity','Fitness room — level 1','Floor material','Ecore Performance Collection','Color: Blue Jays ES103'],
+['amenity','Fitness sprint area — level 1','Floor material','Ecore Performance Collection','Color: Blue EL500'],
+['amenity','Outdoor yoga &amp; performance — level 1','Artificial turf','Grasstex V-Max','Color: green'],
+['amenity','Yoga / fitness walls — level 1','Wall paint','Sherwin Williams Meditative','Eggshell finish'],
+['amenity','Indoor/outdoor pickleball court — level 1','Court surfacing colors','Red 3009, Mid Blue 5007, Light Green 6002',''],
+['amenity','Basketball court — level 1','Floor material','Wood athletic sports flooring','Natural maple'],
+['amenity','Pilates room — level 1','Floor &amp; wall tile','AZ Tile Anthea Earth, porcelain','Matte finish, 24x48'],
+['amenity','Pilates / massage walls — level 1','Wall paint','Sherwin Williams Meditative','Eggshell finish'],
+['amenity','Massage room — level 1','Countertop','AZ Tile quartz, Pro Cloud','2cm'],
+['amenity','Massage room — level 1','Amenity area casework','Fresh Look','Color: Gris'],
+['amenity','Basketball court surround — level 1','Floor carpet','Shaw Contact Dye Lab, Iron 41580','24x24 monolithic install'],
+['amenity','Leasing office / huddle rooms / conference — level 1','Flooring carpet','Shaw Contact Zest carpet tile #5T487, Brio-Color 87485','24x24 monolithic install'],
+['amenity','Break room — level 1','Countertop','AZ Tile quartz, Pro Cloud','2cm with 4" backsplash'],
+['amenity','Break room — level 1','Casework','Fresh Look','Color: Gris'],
+['amenity','Golf simulator — level 1','Surfacing','Synthetic grass','Color: black'],
+['amenity','Business center / circulation — level 1','Flooring tile','AZ Tile Anthea Earth, porcelain','Matte finish, 24x48'],
+['amenity','Business center — level 1','Partitions','Full-height butt-glass system',''],
+['amenity','East circulation / offices — level 1','Floor carpet','Shaw Contact Dye Lab, Iron 41580','24x24 monolithic install'],
+['amenity','Party room — level 1','Flooring carpet','Shaw Contact Zest carpet tile #5T487, Brio-Color 87485','24x24 monolithic install'],
+['amenity','Party room / butler\u2019s kitchen — level 1','Countertop','AZ Tile quartz, Pro Cloud','2cm, 18" backsplash (no backsplash in bathroom)'],
+['amenity','Party room / children\u2019s playroom — level 1','Casework','Fresh Look','Color: Gris'],
+['amenity','Children\u2019s playroom / service areas — level 1','Floor tile','AZ Tile Anthea Earth, porcelain','Matte finish, 24x48'],
+['amenity','Party room / outdoor lounge walls — level 1','Wall paint','Sherwin Williams Meditative','Eggshell finish'],
+['amenity','Children\u2019s outdoor play — level 1','Artificial turf','Grasstex V-Max','Color: green'],
+['amenity','Unisex restroom — level 1','Bathroom wall tile','AZ Tile Anthea Earth, porcelain','Matte finish, 24x48'],
+['amenity','Outdoor lounge / outdoor kitchen — level 1','Countertop','AZ Tile granite, Bianco Typhoon','Polished, 2cm'],
+['amenity','Outdoor lounge — level 1 (2)','Patio pavers','Belgard Dimensions, Sierra','12"x12"x2-3/8"'],
+['amenity','Theater — level 1','Theater high top','AZ Tile quartz, Pro Cloud','3cm, laminated edge, double waterfall edge'],
+['amenity','Theater hallway / restrooms — level 1','Floor &amp; wall tile','AZ Tile Anthea Earth, porcelain','Matte finish, 24x48'],
+['amenity','Theater restrooms — level 1','Countertop','AZ Tile quartz, Pro Cloud','2cm, tiled wall, no backsplash'],
+['amenity','Dog park / bocce surround — level 1','Patio pavers','Belgard Dimensions, Sierra','12"x12"x2-3/8"'],
+['amenity','Dog park — level 1','Artificial turf','Challenger Turf Inc. EnvyPet XQ','Color: green'],
+['amenity','Bocce ball court — level 1','Artificial turf','SporTurf PL705 SporTuf 36','20oz polyurethane backing, color: clay'],
+['amenity','East circulation near theater — level 1','Floor carpet','Shaw Contact Dye Lab, Iron 41580','24x24 monolithic install'],
+['roof','Roof yoga area','Floor material','Wood athletic sports flooring','Natural maple'],
+['roof','Roof deck / pool area','Roof deck material','Tile Tech Pavers, Black Stone','24x24'],
+['roof','Roof sauna','Sauna wall &amp; seating','Cedar plank, bench, headrest',''],
+['roof','Roof outdoor chef\u2019s kitchen','Countertop','AZ Tile granite, Bianco Typhoon','Polished, 2cm, full-height backsplash'],
+['roof','Roof amenity casework','Casework','Challenge Design metal cabinetry','Color: Anthracite'],
+['roof','Roof outdoor yoga','Artificial turf','Grasstex V-Max','Color: green'],
+['roof','Roof running track','Running track surface','American Rubber Surfacing, Hesscor','1/2" thick, color gray/brown'],
+['roof','Roof elevator lobby / restrooms','Flooring','Tile Tech Pavers, Black Stone','24x24'],
+['roof','Roof restrooms / lobby','Countertop','AZ Tile granite, Bianco Typhoon','Polished, 2cm'],
+['roof','Roof restroom / elevator walls','Wall tile','AZ Tile Anthea Dark, porcelain','Matte finish, 24x48'],
+['roof','Roof outdoor counters','Countertop','AZ Tile granite, Bianco Typhoon','Polished, 2cm'],
+['roof','Garage corridor walls','CMU walls','Standard gray concrete masonry unit','Smooth face, raked joints, 8" or 6" width'],
+['roof','Garage pet spa','Wall tile','AZ Tile Anthea Earth, porcelain','Matte finish, 24x48'],
+['roof','Garage pet spa / laundry','Casework','Fresh Look','Color: Gris'],
+['roof','Garage pet spa','Countertop','AZ Tile quartz, Pro Cloud','2cm, no backsplash'],
+['roof','Garage pet spa shower','Shower base tile','AZ Tile Anthea Earth, porcelain','Matte mosaic, 2"x2"'],
+['roof','Garage corridors','Floor','Sealed concrete',''],
+['roof','Garage amenity casework','Casework','Challenge Design metal cabinetry','Color: Anthracite'],
+['lighting','Living / dining / closet / foyer / utility — units','Light fixture','Eurofase Brant, white','24" living room, 16"/12" dining/closet/foyer, 9" utility'],
+['lighting','Bedrooms — units','Ceiling fan','Royal Pacific Mirage II, 5-blade, 50"','Brushed nickel'],
+['lighting','Kitchen &amp; shower — units','Light fixture','Halo SMD4 LED, 4" round','White'],
+['lighting','Unit patios','Patio light','Maxim 86104ABZ, 5"x6.25"H','Bronze'],
+['lighting','Bathroom vanities — units','Vanity light','Kuzco Lighthouse 601001-LED, 26"/36" (supplied by LightCo)','Brushed nickel w/ frosted glass, 3000K'],
+['lighting','Main lobby','Pendant fixture','Sonneman Lighting Nebula, zig-zag configuration','Satin nickel'],
+['lighting','Residential corridors','Ceiling light','Dalton FM7920-BK, 20" dia x 5"H','Black outer shade'],
+['lighting','Bar areas','Pendant light','ET2 Lighting Torch, 15" x 2.5" dia','Chrome'],
+['lighting','Elevator lobbies','Ceiling light','Mousinni, 10" dia x 5"H',''],
+['lighting','Massage room','Task light','Kuzco Dune WS19914, 14"L','Black'],
+['lighting','Outdoor paths','Light bollard','Westgate G2 Series, BOL-G2-118-MCTP-BK, 19"H','Black'],
+['plumbing','Unit kitchens','Kitchen sink','Kohler K-5409, 33" undermount stainless',''],
+['plumbing','Unit kitchens','Kitchen faucet','Kohler K-22972-CP',''],
+['plumbing','Unit laundry','Laundry sink','Kohler K-6661-NA, 23" undermount stainless',''],
+['plumbing','Unit laundry','Laundry faucet','Kohler K-7506-CP',''],
+['plumbing','Unit bathrooms','Lav faucet','Kohler K99760-4CP',''],
+['plumbing','Unit bathrooms','Lav sink','Kohler K-2882-0',''],
+['plumbing','Powder rooms','Pedestal sink &amp; faucet','Kohler K-5266-1 basin/pedestal + K99760-4CP',''],
+['plumbing','ADA units','Accessible kitchen sink','Kohler K-25939, 33"',''],
+['plumbing','ADA units','Accessible kitchen faucet','Kohler K-22972-CP',''],
+['plumbing','Bathrooms — floors 2-6 &amp; secondary 7-8','Shower valve trim','Kohler K-TLS99764-4-CP',''],
+['plumbing','Bathrooms — floors 2-6 &amp; secondary 7-8','Shower head','Kohler K-22170-G',''],
+['plumbing','Bathrooms — floors 2-6 &amp; secondary 7-8','Shower base','MTI MTSB52x40',''],
+['plumbing','Bathrooms','Shower foot rest','Kohler K-23287-CP',''],
+['plumbing','Bathrooms','Shower niche','Schluter, 28"W x 12"H',''],
+['plumbing','Primary bathrooms — floors 7-8','Shower slide bar kit','Kohler K-99242-G-CP','Also spec for accessible transfer showers'],
+['plumbing','Primary bathrooms — floors 7-8','Rain shower head','Kohler K-26148-G-CP',''],
+['plumbing','Unit bathrooms','Toilet','Grohe Essence 39675000 (RH) / 39676000 (LH)','Soft-close seat'],
+['plumbing','Unit bathrooms','Alcove tub','Kohler Mariposa K-1242, 60"x36"','Alternate: Aquatic Bath 6036SMIN'],
+['plumbing','Unit bathrooms','Tub valve &amp; spout trim','Kohler K-T99763-4L-CP',''],
+['plumbing','Select unit bathrooms','Freestanding tub','Barclay 66" Lucinda ATSN66FIG',''],
+['plumbing','Select unit bathrooms','Freestanding tub valve &amp; spout','Kohler K-P8304-US-NA + K-20004-CP',''],
+['plumbing','Common restrooms','Wall mount toilet flush valve','Kohler K10TD00N10','Polished chrome, battery (DC)'],
+['plumbing','Common restrooms','Wall mount toilet','Kohler K-84325-0 Kingston Ultra','White'],
+['plumbing','Common restrooms','Urinal','Kohler Bardon K-4991-ET-0','White'],
+['plumbing','Common restrooms','Urinal flush valve','Kohler K10UD00N10','Polished chrome, battery (DC)'],
+['plumbing','Common restrooms','Lav sink','Kohler Caxton K-20000-0','White undermount'],
+['plumbing','Common restrooms','Touchless lav faucet','Kohler Composed K104C36-SANA-CP','Battery (DC)'],
+['plumbing','Staff / work rooms','Wall-hung lav sink','Kohler Soho K-2084-0 + faucet K-97060-4','White'],
+['plumbing','Party room','Sink &amp; faucet','Kohler Vault K-25939-NA + K-22973 Crue Semi Pro','Polished chrome, stainless'],
+['plumbing','Butler\u2019s kitchen / leasing office','Sink &amp; faucet','Kohler Vault K-3821 + K-22972 Crue','Polished chrome, stainless'],
+['plumbing','Massage room / coffee stations','Sink &amp; faucet','Kohler Undertone K-3184 + K-22975 Crue','Polished chrome, stainless'],
+['plumbing','Outdoor food prep stations','Sink &amp; faucet','American Std 18SB6252211.075 + K-22973 Crue Semi Pro','Polished chrome, stainless'],
+['plumbing','Pool deck','Outdoor shower','No Worries Showers, Windsor Silver ADA','Stainless steel'],
+['plumbing','Utility rooms','Utility sink &amp; faucet','Fiat MSBID2424 + Chicago Faucets 897-RCF',''],
+['plumbing','Roof deck','Drinking fountain','Elkay VRCTL8SC','Stainless steel'],
+['plumbing','Pickleball court','Drinking fountain','Elkay LK4420BF1U','Powder coated &amp; stainless, locking hose bib'],
+['plumbing','Fitness room','Drinking fountain','Elkay EZH2O LZSTL8WSSK','Stainless steel'],
+['plumbing','Dog park','Drinking fountain','Elkay LK4420DB','Powder coated &amp; stainless, locking hose bib'],
+['plumbing','Pet spa','Grooming stand','Shernbao FT-804L',''],
+['plumbing','Pet spa','Pet dryer &amp; hand shower','K9 Dryers K9-II + Kohler K-72415-G-CP hand shower',''],
+['bath','Unit bathrooms','Towel bar','Moen Kyvos BP3718 (18") / BP3724 (24")','Polished chrome'],
+['bath','Unit bathrooms','Robe hook','FHC MRH1, glass mounted','Polished chrome'],
+['bath','Unit bathrooms','Towel ring','Moen Kyvos BP3786','Polished chrome'],
+['bath','Unit bathrooms','Paper holder','Moen Kyvos BP3708','Polished chrome'],
+['bath','Unit bathrooms','Medicine cabinet','Jensen Ultra 869P34WH','Polished frameless'],
+['bath','Common restrooms','Grab bars','Selected by contractor, sizes per plan','Brushed stainless steel'],
+['bath','Common restrooms','Sanitary napkin dispenser/receptacle','ASI model #0473, recessed','Brushed stainless steel'],
+['bath','Common restrooms','Paper towel dispenser/waste receptacle','ASI model #0469, recessed','Brushed stainless steel'],
+['bath','Common restrooms','Toilet paper dispenser','ASI model #0030, surface mounted','Brushed stainless steel'],
+['bath','Common restrooms','Hand dryer','ASI model #0197-1-93, surface mounted','Brushed stainless steel'],
+['bath','Common restrooms','Toilet seat cover dispenser','ASI model #0477-SM, surface mounted','Brushed stainless steel'],
+['bath','Pool deck restrooms','Swimsuit dryer','Suitmate 8 second extractor','Brushed stainless'],
+['appliances','Unit kitchens — floors 2-6','Refrigerator','Samsung RS22T5201SR, 36"','Stainless steel (incl. ADA units)'],
+['appliances','Unit kitchens — floors 2-6','Cooktop','Samsung NZ30K7880US','Induction, stainless steel'],
+['appliances','Unit kitchens — floors 2-6','Microwave oven','Samsung MS19M8000A','Stainless steel, trim kit MA-TK8020TS/AA'],
+['appliances','Unit kitchens — floors 2-6','Dishwasher','Samsung DW80R2031US','Stainless, hidden controls (ADA: SDW60R2014USAA)'],
+['appliances','Unit kitchens — all floors','Wire / wine refrigerator','EdgeStar CWR302CZ, 15"','Stainless steel'],
+['appliances','Unit kitchens — all floors','Wall vent hood','Tradewind I32303','Stainless, recirculating kit 5BL39I30DCK'],
+['appliances','Unit kitchens — floors 2-6','Wall oven','Samsung NV51T5511S, 30"','Stainless steel'],
+['appliances','Unit kitchens — floors 2-6','Island vent hood','Whirlpool WVI75UC6DS','Stainless &amp; glass, recirculating kit W11548459'],
+['appliances','Unit laundry — all floors','Washer','LG WM5500HVA','Graphite, stacking kit'],
+['appliances','Unit laundry — all floors','Dryer','LG DLHC5502V','Graphite, stacking kit'],
+['appliances','Select unit terraces','BBQ grill','Coyote C1ELCT21 &amp; C1EL120SM','Stainless steel'],
+['appliances','Unit kitchens — floors 7-8','Refrigerator','Samsung RF27CG5400SRAA, 36"','Stainless steel','2025-09-16'],
+['appliances','Unit kitchens — floors 7-8','Dishwasher','Samsung DW80R5061USAA','Stainless steel, hidden controls'],
+['appliances','Unit kitchens — floors 7-8','Wall oven','Samsung NV51K6650SSAA, 30"','Stainless steel'],
+['appliances','Unit kitchens — floors 7-8','Island vent hood','Whirlpool WVI51UC6LS','Stainless &amp; glass, recirculating kit W11548459'],
+['appliances','Property management break room','Refrigerator drawers','Perlick HA24RB-4, ADA height, 24"','Stainless, panel ready','2030-09-16'],
+['appliances','Property management break room','Freezer drawers','Perlick HA24FB-4, ADA height, 24"','Stainless, panel ready'],
+['appliances','Break room / butler\u2019s kitchen','Microwave drawer','Bosch BHMD8451UC, 24"','Stainless steel'],
+['appliances','Party room','Convection / microwave oven','KitchenAid KKMBP100ES, 30"','Stainless steel'],
+['appliances','Party room','Ice maker','Perlick H50IMW-AD, 15"','Stainless, panel ready'],
+['appliances','Party room','Cooktop','Bosch NIT5060UC','Induction, stainless steel'],
+['appliances','Break room','Refrigerator','Samsung RF27CG5400SRAA, 36"','Stainless steel','2025-09-16'],
+['appliances','Break room / butler\u2019s kitchen','Dishwasher','Samsung SDW60R2014USAA','Stainless steel'],
+['appliances','Package room','Refrigerator','Hoshizaki SP-HR2A-FG',''],
+['appliances','Roof / grade outdoor kitchen','Outdoor refrigerator','Summit SPR7BOSSTADA','Stainless steel'],
+['appliances','Roof / grade outdoor kitchen','BBQ gas grill','Wolf WOG36','Stainless steel','2026-09-16'],
+['appliances','Roof / grade outdoor kitchen','Commercial ice maker','Hoshizaki HDCM-300BAH','Water filter HH9320-51','2027-09-16'],
+['appliances','Roof / grade outdoor kitchen','Teppanyaki griddle','Turbo Grill SP-BTEPANNG',''],
+['appliances','Common laundry','Washing machine','Samsung WF45B6300AP',''],
+['appliances','Common laundry','Dryer','Samsung DVE45R6300P','']
+];
+
+const SEED = RAW.map((r,i) => ({
+  id:'sd-'+String(i+1).padStart(4,'0'),
+  c:r[0], loc:r[1], item:r[2], spec:r[3], fin:r[4],
+  building:'omm7220', floor:deriveFloor(r[1]), source:'omm',
+  photo:'', warranty:r[5]||'', lastConfirmed:'2024-09-16', unitOverride:false
+}));
+
+let storedById = {};
+let historyById = {};
+let selB='all', selF='all', selC='all', selView='all', searchTerm='', onlyExpiring=false, onlyStale=false;
+let editMode=false, editingId=null, myName='', pendingDupConfirm=false;
+
+function allItems(){
+  const seedMerged = SEED.map(s => storedById[s.id] ? {...s, ...storedById[s.id]} : s);
+  const teamOnly = Object.values(storedById).filter(v => v.id && v.id.startsWith('tm-'));
+  return seedMerged.concat(teamOnly);
+}
+function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function matchesSearch(it,q){
+  if(!q) return true;
+  const hay = normalizeNumbers((it.loc+' '+it.item+' '+it.spec+' '+it.fin+' '+(CATS[it.c]?CATS[it.c].label:'')+' '+it.floor+' '+(BUILDINGS[it.building]||'')).toLowerCase());
+  const tokens = normalizeNumbers(q.toLowerCase()).split(/\s+/).filter(Boolean);
+  return tokens.every(t => hay.includes(t));
+}
+
+function daysUntil(dateStr){
+  if(!dateStr) return null;
+  const ms = new Date(dateStr+'T00:00:00') - new Date(new Date().toDateString());
+  return Math.round(ms/86400000);
+}
+function isExpiringSoon(it){
+  if(!it.warranty) return false;
+  const d = daysUntil(it.warranty);
+  return d !== null && d <= 90;
+}
+const STALE_DAYS = 548; // ~18 months
+function daysSince(dateStr){
+  if(!dateStr) return null;
+  const ms = new Date(new Date().toDateString()) - new Date(dateStr+'T00:00:00');
+  return Math.round(ms/86400000);
+}
+function isStale(it){
+  const d = daysSince(it.lastConfirmed);
+  return d !== null && d > STALE_DAYS;
+}
+
+function floorsFor(buildingId){
+  const set = new Set();
+  allItems().forEach(it => { if(buildingId==='all' || it.building===buildingId) set.add(it.floor); });
+  return FLOOR_ORDER.filter(f => set.has(f));
+}
+function categoriesFor(buildingId, floor, view){
+  const allowed = VIEWS[view] ? VIEWS[view].cats : null;
+  const set = new Set();
+  allItems().forEach(it => {
+    if((buildingId==='all'||it.building===buildingId) && (floor==='all'||it.floor===floor)) set.add(it.c);
+  });
+  let keys = Object.keys(CATS).filter(k => set.has(k));
+  if(allowed) keys = keys.filter(k => allowed.includes(k));
+  return keys;
+}
+
+function renderViewSelect(){
+  const sel = document.getElementById('selView');
+  sel.innerHTML = Object.entries(VIEWS).map(([k,v]) => `<option value="${k}">${v.label}</option>`).join('');
+  sel.value = selView;
+}
+function renderBuildingSelect(){
+  const sel = document.getElementById('selBuilding');
+  let html = `<option value="all">All Buildings</option>`;
+  Object.entries(BUILDINGS).forEach(([id,label]) => html += `<option value="${id}">${label}</option>`);
+  sel.innerHTML = html;
+  sel.value = selB;
+}
+function renderFloorSelect(){
+  const sel = document.getElementById('selFloor');
+  const opts = floorsFor(selB);
+  if(!opts.includes(selF)) selF = 'all';
+  let html = `<option value="all">All Floors</option>`;
+  opts.forEach(f => html += `<option value="${f}">${f}</option>`);
+  sel.innerHTML = html;
+  sel.value = selF;
+}
+function renderCategorySelect(){
+  const sel = document.getElementById('selCategory');
+  const opts = categoriesFor(selB, selF, selView);
+  if(!opts.includes(selC)) selC = 'all';
+  let html = `<option value="all">All Categories</option>`;
+  opts.forEach(k => html += `<option value="${k}">${CATS[k].label} (${allItems().filter(it=>(selB==='all'||it.building===selB)&&(selF==='all'||it.floor===selF)&&it.c===k).length})</option>`);
+  sel.innerHTML = html;
+  sel.value = selC;
+}
+
+function getFiltered(){
+  const allowed = VIEWS[selView] ? VIEWS[selView].cats : null;
+  return allItems().filter(it =>
+    (selB==='all'||it.building===selB) &&
+    (selF==='all'||it.floor===selF) &&
+    (selC==='all'||it.c===selC) &&
+    (!allowed || allowed.includes(it.c)) &&
+    (!onlyExpiring || isExpiringSoon(it)) &&
+    (!onlyStale || isStale(it)) &&
+    matchesSearch(it, searchTerm)
+  );
+}
+
+function renderWarrantyRow(dateStr){
+  const d = daysUntil(dateStr);
+  let txt, cls;
+  if(d < 0){ txt = `Expired ${Math.abs(d)} day${Math.abs(d)===1?'':'s'} ago`; cls='warranty-bad'; }
+  else if(d <= 90){ txt = `Expires in ${d} day${d===1?'':'s'}`; cls='warranty-warn'; }
+  else { txt = `Expires ${dateStr}`; cls=''; }
+  return `<div class="meta-row warranty-row ${cls}">${ICON.shield}<span>${txt}</span></div>`;
+}
+function renderConfirmedRow(it){
+  const stale = isStale(it);
+  return `<div class="meta-row confirmed-row ${stale?'confirmed-stale':''}">${ICON.history}<span>Last confirmed ${escapeHtml(it.lastConfirmed||'—')}${stale?' — needs reverification':''}</span></div>`;
+}
+function renderHistory(hist){
+  if(!hist || !hist.length) return '';
+  const rows = hist.slice(0,5).map(h => `<li>${escapeHtml(h.date)} — ${escapeHtml(h.summary)}${h.by ? ' — '+escapeHtml(h.by) : ''}</li>`).join('');
+  return `<div class="history-block"><p class="history-title">${ICON.history}Change history</p><ul class="history-list">${rows}</ul></div>`;
+}
+
+function renderGrid(){
+  const filtered = getFiltered();
+  const gridEl = document.getElementById('grid');
+  if(filtered.length===0){
+    gridEl.innerHTML = `<div class="empty">No items match these filters.<br><button id="clearBtn">Clear all filters</button></div>`;
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      selB='all'; selF='all'; selC='all'; selView='all'; searchTerm=''; onlyExpiring=false; onlyStale=false;
+      document.getElementById('search').value='';
+      document.getElementById('warrantyBannerBtn').textContent='View these';
+      document.getElementById('staleBannerBtn').textContent='View these';
+      renderViewSelect(); renderBuildingSelect(); renderFloorSelect(); renderCategorySelect(); renderGrid(); updateStatline();
+    });
+    return;
+  }
+  gridEl.innerHTML = filtered.map(it => {
+    const cat = CATS[it.c] || {label:it.c, color:'#999', code:'??'};
+    const hist = historyById[it.id] || [];
+    const manual = getManualLink(it);
+    const photoHtml = it.photo
+      ? `<img src="${escapeHtml(it.photo)}" class="card-photo" alt="${escapeHtml(it.item)} photo">`
+      : `<div class="photo-placeholder">${ICON.photo}No photo yet</div>`;
+    return `<div class="card">
+      ${it.source==='team' ? '<span class="badge-team">Added by team</span>' : ''}
+      <div class="card-top">
+        <div class="avatar" style="background:${cat.color}2E;color:${cat.color}">${cat.code}</div>
+        <div class="card-info">
+          <h3 title="${escapeHtml(it.item)}">${escapeHtml(it.item)}</h3>
+          <div class="meta-row">${ICON.tag}<span class="spec-text">${escapeHtml(it.spec || '—')}</span></div>
+          <div class="meta-row">${ICON.layers}<span class="cat-text">${cat.label} · ${escapeHtml(it.floor)}</span></div>
+        </div>
+      </div>
+      <div class="pillrow"><span class="pill">${ICON.pin}${escapeHtml(it.loc)}</span>${it.unitOverride ? `<span class="pill unit-pill">${ICON.flag}Unit-specific</span>` : ''}</div>
+
+      <button class="details-toggle" data-id="${it.id}"><span class="tlabel">Show details</span><span class="tchev">${ICON.chevron}</span></button>
+      <div class="expanded" id="exp-${it.id}">
+        ${photoHtml}
+        ${it.fin ? `<p class="fin-note">${escapeHtml(it.fin)}</p>` : ''}
+        ${it.warranty ? renderWarrantyRow(it.warranty) : ''}
+        ${renderConfirmedRow(it)}
+        <a class="manual-link ${manual.fallback?'fallback':''}" href="${manual.url}" target="_blank" rel="noopener">${manual.fallback ? ICON.search2 : ICON.doc}${manual.label}</a>
+        ${renderHistory(hist)}
+        <button class="edit-btn" data-id="${it.id}">${ICON.edit}Edit this item</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function updateStatline(){
+  const allCount = allItems().length;
+  const total = getFiltered().length;
+  document.getElementById('statline').textContent =
+    (selB==='all' && selF==='all' && selC==='all' && selView==='all' && !searchTerm && !onlyExpiring && !onlyStale)
+      ? `${allCount} items catalogued across ${Object.keys(CATS).length} categories`
+      : `${total} of ${allCount} items match current filters`;
+}
+
+function updateWarrantyBanner(){
+  const items = allItems().filter(isExpiringSoon);
+  const el = document.getElementById('warrantyBanner');
+  if(items.length===0){ el.style.display='none'; return; }
+  el.style.display='flex';
+  document.getElementById('warrantyText').textContent = `${items.length} item${items.length>1?'s':''} need warranty attention — expired or expiring within 90 days`;
+}
+
+function updateStaleBanner(){
+  const items = allItems().filter(isStale);
+  const el = document.getElementById('staleBanner');
+  if(items.length===0){ el.style.display='none'; return; }
+  el.style.display='flex';
+  document.getElementById('staleText').textContent = `${items.length} item${items.length>1?'s':''} haven't been reconfirmed in over 18 months`;
+}
+
+function populateFormStatics(){
+  document.getElementById('f-building').innerHTML = Object.entries(BUILDINGS).map(([id,label])=>`<option value="${id}">${label}</option>`).join('');
+  document.getElementById('f-floor').innerHTML = FLOOR_ORDER.map(f=>`<option value="${f}">${f}</option>`).join('');
+  document.getElementById('f-cat').innerHTML = Object.keys(CATS).map(k=>`<option value="${k}">${CATS[k].label}</option>`).join('');
+}
+
+function clearForm(){
+  ['f-loc','f-item','f-spec','f-fin','f-photo','f-warranty'].forEach(id => document.getElementById(id).value='');
+  const fi = document.getElementById('f-photo-file'); if(fi) fi.value='';
+  const prev = document.getElementById('f-photo-preview'); if(prev){ prev.src=''; prev.style.display='none'; }
+}
+
+function openAddPanel(){
+  editMode=false; editingId=null; pendingDupConfirm=false;
+  document.getElementById('panelTitle').textContent = 'Add an item to the registry';
+  document.getElementById('panelHint').textContent = 'Saved to shared storage — visible to anyone using this dashboard.';
+  document.getElementById('dupWarning').style.display = 'none';
+  clearForm();
+  document.getElementById('f-name').value = myName;
+  document.getElementById('f-unit').value = 'no';
+  document.getElementById('saveAdd').textContent = 'Save to registry';
+  document.getElementById('panel').classList.add('open');
+}
+function openEditPanel(id){
+  const it = allItems().find(x => x.id === id);
+  if(!it) return;
+  editMode=true; editingId=id; pendingDupConfirm=false;
+  document.getElementById('panelTitle').textContent = 'Edit this item';
+  document.getElementById('panelHint').textContent = "Changes are saved to shared storage and logged in this item's change history.";
+  document.getElementById('dupWarning').style.display = 'none';
+  document.getElementById('f-building').value = it.building;
+  document.getElementById('f-floor').value = it.floor;
+  document.getElementById('f-cat').value = it.c;
+  document.getElementById('f-loc').value = it.loc;
+  document.getElementById('f-item').value = it.item;
+  document.getElementById('f-spec').value = it.spec;
+  document.getElementById('f-fin').value = it.fin || '';
+  document.getElementById('f-photo').value = it.photo || '';
+  document.getElementById('f-photo-file').value = '';
+  const prev = document.getElementById('f-photo-preview');
+  if(it.photo){ prev.src=it.photo; prev.style.display='block'; } else { prev.src=''; prev.style.display='none'; }
+  document.getElementById('f-warranty').value = it.warranty || '';
+  document.getElementById('f-name').value = myName;
+  document.getElementById('f-unit').value = it.unitOverride ? 'yes' : 'no';
+  document.getElementById('saveAdd').textContent = 'Save changes';
+  document.getElementById('panel').classList.add('open');
+  document.getElementById('panel').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+document.getElementById('search').addEventListener('input', e => { searchTerm = e.target.value; renderGrid(); updateStatline(); });
+
+document.getElementById('selView').addEventListener('change', e => {
+  selView = e.target.value; selC='all';
+  renderCategorySelect(); renderGrid(); updateStatline();
+});
+document.getElementById('selBuilding').addEventListener('change', e => {
+  selB = e.target.value; selF='all'; selC='all';
+  renderFloorSelect(); renderCategorySelect(); renderGrid(); updateStatline();
+});
+document.getElementById('selFloor').addEventListener('change', e => {
+  selF = e.target.value; selC='all';
+  renderCategorySelect(); renderGrid(); updateStatline();
+});
+document.getElementById('selCategory').addEventListener('change', e => {
+  selC = e.target.value;
+  renderGrid(); updateStatline();
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  selB='all'; selF='all'; selC='all'; selView='all'; searchTerm=''; onlyExpiring=false; onlyStale=false;
+  document.getElementById('search').value='';
+  document.getElementById('warrantyBannerBtn').textContent='View these';
+  document.getElementById('staleBannerBtn').textContent='View these';
+  renderViewSelect(); renderBuildingSelect(); renderFloorSelect(); renderCategorySelect(); renderGrid(); updateStatline();
+});
+
+document.getElementById('warrantyBannerBtn').addEventListener('click', () => {
+  onlyExpiring = !onlyExpiring;
+  document.getElementById('warrantyBannerBtn').textContent = onlyExpiring ? 'Show all' : 'View these';
+  renderGrid(); updateStatline();
+});
+
+document.getElementById('staleBannerBtn').addEventListener('click', () => {
+  onlyStale = !onlyStale;
+  document.getElementById('staleBannerBtn').textContent = onlyStale ? 'Show all' : 'View these';
+  renderGrid(); updateStatline();
+});
+
+document.getElementById('f-photo-file').addEventListener('change', e => {
+  const file = e.target.files[0];
+  const prev = document.getElementById('f-photo-preview');
+  const labelText = document.getElementById('f-photo-label-text');
+  if(file){
+    prev.src = URL.createObjectURL(file);
+    prev.style.display = 'block';
+    labelText.textContent = file.name;
+  } else {
+    prev.src = ''; prev.style.display = 'none';
+    labelText.textContent = 'Click to upload a photo';
+  }
+});
+
+document.getElementById('openAdd').addEventListener('click', openAddPanel);
+document.getElementById('cancelAdd').addEventListener('click', () => document.getElementById('panel').classList.remove('open'));
+
+document.getElementById('grid').addEventListener('click', (e) => {
+  const toggleBtn = e.target.closest('.details-toggle');
+  if(toggleBtn){
+    const id = toggleBtn.getAttribute('data-id');
+    const sec = document.getElementById('exp-'+id);
+    const open = sec.style.display === 'block';
+    sec.style.display = open ? 'none' : 'block';
+    toggleBtn.classList.toggle('open', !open);
+    toggleBtn.querySelector('.tlabel').textContent = open ? 'Show details' : 'Hide details';
+    return;
+  }
+  const editBtn = e.target.closest('.edit-btn');
+  if(editBtn){ openEditPanel(editBtn.getAttribute('data-id')); }
+});
+
+document.getElementById('saveAdd').addEventListener('click', async () => {
+  const building = document.getElementById('f-building').value;
+  const floor = document.getElementById('f-floor').value;
+  const cat = document.getElementById('f-cat').value;
+  const loc = document.getElementById('f-loc').value.trim();
+  const item = document.getElementById('f-item').value.trim();
+  const spec = document.getElementById('f-spec').value.trim();
+  const fin = document.getElementById('f-fin').value.trim();
+  const photo = document.getElementById('f-photo').value.trim();
+  const warranty = document.getElementById('f-warranty').value.trim();
+  const name = document.getElementById('f-name').value.trim();
+  const unitOverride = document.getElementById('f-unit').value === 'yes';
+  if(!loc || !item) return;
+
+  if(!editMode){
+    const dup = allItems().find(x => x.loc.trim().toLowerCase()===loc.toLowerCase() && x.item.trim().toLowerCase()===item.toLowerCase());
+    if(dup && !pendingDupConfirm){
+      document.getElementById('dupItemName').textContent = item;
+      document.getElementById('dupLocName').textContent = loc;
+      document.getElementById('dupWarning').style.display = 'block';
+      pendingDupConfirm = true;
+      return;
+    }
+  }
+
+  myName = name;
+  try{ localStorage.setItem('registryName', myName); }catch(e){}
+
+  const today = new Date().toISOString().slice(0,10);
+  const by = name || 'Someone';
+
+  if(editMode && editingId){
+    const old = allItems().find(x => x.id === editingId) || {};
+    const newRec = {...old, c:cat, loc, item, spec, fin, photo, warranty, building, floor, unitOverride, lastConfirmed: today};
+    const changes = [];
+    ['c','loc','item','spec','fin','photo','warranty','floor','unitOverride'].forEach(f => {
+      if((old[f]||'') !== (newRec[f]||'')) changes.push(FIELD_LABELS[f] || f);
+    });
+    storedById[editingId] = newRec;
+    const hist = historyById[editingId] || [];
+    hist.unshift({date: today, by, summary: changes.length ? changes.join(', ') + ' updated' : 'Confirmed, no changes'});
+    historyById[editingId] = hist;
+    try{
+      const pf = document.getElementById('f-photo-file').files[0];
+      if(pf){ newRec.photo = await dbUploadPhoto(pf, editingId); storedById[editingId] = newRec; }
+      await dbUpsertItem(newRec);
+      await dbInsertHistory(editingId, hist[0]);
+    }catch(e){ console.error('save error:',e); }
+  } else {
+    const id = 'tm-' + Date.now() + '-' + Math.random().toString(36).slice(2,7);
+    const rec = {id, c:cat, loc, item, spec, fin, photo, warranty, building, floor, source:'team', unitOverride, lastConfirmed: today};
+    try{
+      const pf = document.getElementById('f-photo-file').files[0];
+      if(pf){ rec.photo = await dbUploadPhoto(pf, id); }
+      storedById[id] = rec;
+      historyById[id] = [{date: today, by, summary:'Added to registry'}];
+      await dbUpsertItem(rec);
+      await dbInsertHistory(id, historyById[id][0]);
+    }catch(e){ console.error('save error:',e); storedById[id]=rec; historyById[id]=[{date:today,by,summary:'Added to registry'}]; }
+  }
+
+  pendingDupConfirm = false;
+  document.getElementById('dupWarning').style.display = 'none';
+  document.getElementById('panel').classList.remove('open');
+  clearForm();
+  renderViewSelect(); renderBuildingSelect(); renderFloorSelect(); renderCategorySelect(); renderGrid(); updateStatline(); updateWarrantyBanner(); updateStaleBanner();
+});
+
+function csvEscape(v){
+  const s = String(v==null?'':v);
+  if(/[",\n]/.test(s)) return '"' + s.replace(/"/g,'""') + '"';
+  return s;
+}
+function exportCSV(){
+  const headers = ['Building','Floor','Category','Location','Item','Manufacturer/Model','Finish/Notes','Photo URL','Warranty Date','Unit Override','Last Confirmed'];
+  const lines = [headers.join(',')];
+  allItems().forEach(it => {
+    lines.push([
+      BUILDINGS[it.building]||it.building, it.floor, CATS[it.c]?CATS[it.c].label.replace(/&amp;/g,'&'):it.c,
+      it.loc, it.item, it.spec, it.fin, it.photo, it.warranty, it.unitOverride?'Yes':'No', it.lastConfirmed
+    ].map(csvEscape).join(','));
+  });
+  const blob = new Blob([lines.join('\n')], {type:'text/csv'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'optima-registry-export.csv';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function parseCSV(text){
+  const rows = []; let row = [], field = '', inQuotes = false;
+  for(let i=0;i<text.length;i++){
+    const c = text[i];
+    if(inQuotes){
+      if(c === '"'){ if(text[i+1] === '"'){ field+='"'; i++; } else { inQuotes=false; } }
+      else field += c;
+    } else {
+      if(c === '"') inQuotes = true;
+      else if(c === ','){ row.push(field); field=''; }
+      else if(c === '\n'){ row.push(field); rows.push(row); row=[]; field=''; }
+      else if(c === '\r'){ /* skip */ }
+      else field += c;
+    }
+  }
+  if(field.length || row.length){ row.push(field); rows.push(row); }
+  return rows.filter(r => !(r.length===1 && r[0]===''));
+}
+
+async function importCSVRows(rows){
+  if(rows.length < 2) return 0;
+  const dataRows = rows.slice(1);
+  const labelToKey = {};
+  Object.entries(CATS).forEach(([k,v]) => { labelToKey[v.label.replace(/&amp;/g,'&').toLowerCase()] = k; });
+  const buildingLabelToId = {};
+  Object.entries(BUILDINGS).forEach(([id,label]) => { buildingLabelToId[label.toLowerCase()] = id; });
+  const today = new Date().toISOString().slice(0,10);
+  const by = myName || 'Import';
+  let count = 0;
+  for(const r of dataRows){
+    const loc = (r[3]||'').trim(), item = (r[4]||'').trim();
+    if(!loc || !item) continue;
+    const buildingId = buildingLabelToId[(r[0]||'').trim().toLowerCase()] || 'omm7220';
+    const floorRaw = (r[1]||'').trim();
+    const floor = FLOOR_ORDER.includes(floorRaw) ? floorRaw : deriveFloor(loc);
+    const c = labelToKey[(r[2]||'').trim().toLowerCase()] || 'units';
+    const spec = (r[5]||'').trim(), fin = (r[6]||'').trim(), photo = (r[7]||'').trim(), warranty = (r[8]||'').trim();
+    const unitOverride = /^(yes|true|1)$/i.test((r[9]||'').trim());
+    const id = 'tm-' + Date.now() + '-' + Math.random().toString(36).slice(2,7) + '-' + count;
+    const rec = {id, c, loc, item, spec, fin, photo, warranty, building:buildingId, floor, source:'team', unitOverride, lastConfirmed: today};
+    storedById[id] = rec;
+    historyById[id] = [{date:today, by, summary:'Imported from CSV'}];
+    try{
+      await dbUpsertItem(rec);
+      await dbInsertHistory(id, historyById[id][0]);
+    }catch(e){ console.error('import error:',e); }
+    count++;
+  }
+  return count;
+}
+
+document.getElementById('exportBtn').addEventListener('click', exportCSV);
+document.getElementById('importBtn').addEventListener('click', () => document.getElementById('csvFileInput').click());
+document.getElementById('csvFileInput').addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if(!file) return;
+  const text = await file.text();
+  const rows = parseCSV(text);
+  const statusEl = document.getElementById('importStatus');
+  statusEl.textContent = 'Importing…';
+  const n = await importCSVRows(rows);
+  statusEl.textContent = `Imported ${n} item${n===1?'':'s'}.`;
+  setTimeout(() => { statusEl.textContent=''; }, 5000);
+  e.target.value = '';
+  renderViewSelect(); renderBuildingSelect(); renderFloorSelect(); renderCategorySelect(); renderGrid(); updateStatline(); updateWarrantyBanner(); updateStaleBanner();
+});
+
+async function init(){
+  populateFormStatics();
+  try{
+    const {data: items} = await db.from('registry_items').select('*');
+    (items||[]).forEach(r => {
+      storedById[r.id] = {id:r.id, c:r.c, loc:r.loc, item:r.item, spec:r.spec, fin:r.fin,
+        photo:r.photo, warranty:r.warranty, building:r.building, floor:r.floor,
+        source:r.source, unitOverride:r.unit_override, lastConfirmed:r.last_confirmed};
+    });
+    const {data: hist} = await db.from('item_history').select('*').order('created_at', {ascending:false});
+    (hist||[]).forEach(h => {
+      if(!historyById[h.item_id]) historyById[h.item_id] = [];
+      historyById[h.item_id].push({date:h.date, by:h.by_name, summary:h.summary});
+    });
+  }catch(e){ console.error('load error:',e); }
+  try{ myName = localStorage.getItem('registryName') || ''; }catch(e){}
+  renderViewSelect();
+  renderBuildingSelect();
+  renderFloorSelect();
+  renderCategorySelect();
+  renderGrid();
+  updateStatline();
+  updateWarrantyBanner();
+  updateStaleBanner();
+}
+init();
+</script>
+</body>
+</html>
